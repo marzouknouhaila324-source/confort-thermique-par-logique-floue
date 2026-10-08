@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Évaluation du Confort Thermique</title>
+
+    <!-- Liaison avec le fichier CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= HEADER ================= -->
+        <header class="header">
+
+            <div class="header-icon">
+                ☀️
+            </div>
+
+            <div class="header-title">
+                <h1>Évaluation du Confort Thermique</h1>
+                <p>par Logique Floue</p>
+            </div>
+
+            <div class="header-house">
+                🏠
+            </div>
+
+        </header>
+
+
+        <!-- ================= CONTENU PRINCIPAL ================= -->
+
+        <main class="dashboard">
+
+            <!-- ================= COLONNE GAUCHE ================= -->
+
+            <section class="left-column">
+
+                <!-- PARAMÈTRES -->
+
+                <div class="card parameters">
+
+                    <h2>
+                        ⚙️
+                        Saisir les paramètres
+                    </h2>
+
+
+                    <!-- Température -->
+
+                    <div class="input-box">
+
+                        <label for="temperature">
+                            🌡️ Température (°C)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="temperature"
+                            value="25"
+                            min="0"
+                            max="50"
+                            step="0.1"
+                        >
+
+                    </div>
+
+
+                    <!-- Humidité -->
+
+                    <div class="input-box">
+
+                        <label for="humidite">
+                            💧 Humidité (%)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="humidite"
+                            value="50"
+                            min="0"
+                            max="100"
+                            step="1"
+                        >
+
+                    </div>
+
+
+                    <!-- Bouton -->
+
+                    <button id="evaluer">
+                        🧮 Évaluer
+                    </button>
+
+                </div>
+
+
+                <!-- ILLUSTRATION -->
+
+                <div class="card illustration-card">
+
+                    <div class="house-illustration">
+
+                        <div class="house">
+                            🏠
+                        </div>
+
+                        <div class="thermometer">
+                            🌡️
+                        </div>
+
+                        <div class="water">
+                            💧
+                        </div>
+
+                        <div class="leaf">
+                            🍃
+                        </div>
+
+                    </div>
+
+                    <p>
+                        <i>
+                            Un meilleur confort,<br>
+                            pour un quotidien plus sain
+                        </i>
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= COLONNE DROITE ================= -->
+
+            <section class="right-column">
+
+
+                <!-- SCORE -->
+
+                <div class="card score-card">
+
+                    <div class="section-title">
+
+                        <span class="title-icon">
+                            😊
+                        </span>
+
+                        <h2>
+                            Score de confort
+                        </h2>
+
+                    </div>
+
+
+                    <div class="score-number">
+
+                        <span id="score">
+                            80
+                        </span>
+
+                        <small>
+                            / 100
+                        </small>
+
+                    </div>
+
+
+                    <!-- Barre de progression -->
+
+                    <div class="progress-container">
+
+                        <div
+                            class="progress-bar"
+                            id="progressBar"
+                            style="width: 80%;"
+                        >
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="comfort-label"
+                        id="comfortLabel"
+                    >
+                        Confort élevé
+                    </div>
+
+                </div>
+
+
+
+                <!-- DEGRÉS D'APPARTENANCE -->
+
+                <div class="card membership-card">
+
+                    <div class="section-title">
+
+                        <span class="title-icon">
+                            📊
+                        </span>
+
+                        <h2>
+                            Degrés d'appartenance
+                        </h2>
+
+                    </div>
+
+
+                    <div class="membership-grid">
+
+
+                        <!-- TEMPÉRATURE -->
+
+                        <div class="membership-box temperature-box">
+
+                            <h3>
+                                🌡️ Température
+                            </h3>
+
+
+                            <!-- Froide -->
+
+                            <div class="membership-row">
+
+                                <div class="membership-info">
+
+                                    <span>
+                                        Froide :
+                                    </span>
+
+                                    <span id="froideValue">
+                                        0.00
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-progress">
+                                    <div
+                                        class="mini-bar cold-bar"
+                                        id="froideBar"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Modérée -->
+
+                            <div class="membership-row">
+
+                                <div class="membership-info">
+
+                                    <span>
+                                        Modérée :
+                                    </span>
+
+                                    <span id="modereeValue">
+                                        0.67
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-progress">
+                                    <div
+                                        class="mini-bar moderate-bar"
+                                        id="modereeBar"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Chaude -->
+
+                            <div class="membership-row">
+
+                                <div class="membership-info">
+
+                                    <span>
+                                        Chaude :
+                                    </span>
+
+                                    <span id="chaudeValue">
+                                        0.00
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-progress">
+                                    <div
+                                        class="mini-bar hot-bar"
+                                        id="chaudeBar"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- HUMIDITÉ -->
+
+                        <div class="membership-box humidity-box">
+
+                            <h3>
+                                💧 Humidité
+                            </h3>
+
+
+                            <!-- Faible -->
+
+                            <div class="membership-row">
+
+                                <div class="membership-info">
+
+                                    <span>
+                                        Faible :
+                                    </span>
+
+                                    <span id="faibleValue">
+                                        0.00
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-progress">
+                                    <div
+                                        class="mini-bar low-humidity-bar"
+                                        id="faibleBar"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Moyenne -->
+
+                            <div class="membership-row">
+
+                                <div class="membership-info">
+
+                                    <span>
+                                        Moyenne :
+                                    </span>
+
+                                    <span id="moyenneValue">
+                                        1.00
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-progress">
+                                    <div
+                                        class="mini-bar medium-humidity-bar"
+                                        id="moyenneBar"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Élevée -->
+
+                            <div class="membership-row">
+
+                                <div class="membership-info">
+
+                                    <span>
+                                        Élevée :
+                                    </span>
+
+                                    <span id="eleveeValue">
+                                        0.00
+                                    </span>
+
+                                </div>
+
+                                <div class="mini-progress">
+                                    <div
+                                        class="mini-bar high-humidity-bar"
+                                        id="eleveeBar"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONFORT THERMIQUE -->
+
+                <div class="card comfort-card">
+
+                    <div class="section-title">
+
+                        <span class="title-icon">
+                            🍃
+                        </span>
+
+                        <h2>
+                            Confort thermique
+                        </h2>
+
+                    </div>
+
+
+                    <div class="comfort-grid">
+
+
+                        <!-- MAUVAIS -->
+
+                        <div class="result-box bad">
+
+                            <span>
+                                Mauvais :
+                            </span>
+
+                            <strong id="mauvaisValue">
+                                0.00
+                            </strong>
+
+                            <div class="result-progress">
+
+                                <div
+                                    id="mauvaisBar"
+                                    class="result-bar"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MOYEN -->
+
+                        <div class="result-box medium">
+
+                            <span>
+                                Moyen :
+                            </span>
+
+                            <strong id="moyenValue">
+                                0.00
+                            </strong>
+
+                            <div class="result-progress">
+
+                                <div
+                                    id="moyenBar"
+                                    class="result-bar"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BON -->
+
+                        <div class="result-box good">
+
+                            <span>
+                                Bon :
+                            </span>
+
+                            <strong id="bonValue">
+                                0.67
+                            </strong>
+
+                            <div class="result-progress">
+
+                                <div
+                                    id="bonBar"
+                                    class="result-bar"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- INFORMATION -->
+
+                <div class="card information-card">
+
+                    <div class="information-icon">
+                        ℹ️
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Information
+                        </h2>
+
+                        <p id="informationText">
+
+                            Le niveau de confort est élevé.
+                            La température et l'humidité sont
+                            favorables à de bonnes conditions de confort.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- Liaison avec JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
